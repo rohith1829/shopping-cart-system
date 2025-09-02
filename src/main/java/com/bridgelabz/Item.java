@@ -33,7 +33,19 @@ public class Item {
     public double getPrice() {
         return price;
     }
-    public String getItemdetails() {
+    public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public String getItemdetails() {
         return "Id:" + this.id + ",Item:" + this.name + ",Price:" + this.price;
     }
 

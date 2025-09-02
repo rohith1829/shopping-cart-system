@@ -7,6 +7,8 @@ import java.util.List;
 public class ShoppingCart {
 	private List<Item> items=new ArrayList<Item>();
 	public void addItem(Item i) {
+		if(i==null)
+			throw new  NullItemException("Can't add null items");
 		items.add(i);
 	}
 	
@@ -27,6 +29,8 @@ public class ShoppingCart {
 
 
 	public String viewItems() {
+		if(items.isEmpty())
+			return "Cart is empty";
 		return items.toString();
 	}
 
@@ -38,6 +42,9 @@ public class ShoppingCart {
 	        double total = 0.0;
 	        for (Item item : items) {
 	            total += item.getPrice();
+	        }
+	        if (Double.isInfinite(total)) {
+	            throw new PriceOverflowException("Total price exceeded maximum limit!");
 	        }
 	        return total;
 	    }

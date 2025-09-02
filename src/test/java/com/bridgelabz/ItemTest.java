@@ -1,15 +1,11 @@
-package bridgelabz;
+package com.bridgelabz;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
-import com.bridgelabz.InvalidIdException;
-import com.bridgelabz.InvalidNameException;
-import com.bridgelabz.InvalidPriceException;
-import com.bridgelabz.Item;
+
 
 public class ItemTest {
 	  
@@ -27,6 +23,13 @@ public class ItemTest {
 		Item i=new Item("1","TV",25999.0);
 		assertEquals("Id:1,Item:TV,Price:25999.0", i.getItemdetails());
 		
+	}
+	
+	@Test
+	public void updateItemNameTest() {
+		Item i=new Item("1","TV",25999.0);
+		i.setName("Laptop");
+		assertEquals("Laptop", i.getName());
 	}
 	  @Test
 	    public void creatingItemWithNullIdThrowsException() {
